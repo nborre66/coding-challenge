@@ -1,5 +1,6 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
+from flask_jwt_extended import jwt_required
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 
 from db import db
@@ -12,11 +13,13 @@ blp = Blueprint("Jobs", "jobs", description="Operations on jobs")
 
 @blp.route("/jobs/<int:job_id>")
 class Job(MethodView):
+    @jwt_required()
     @blp.response(200, JobSchema)
     def get(self, job_id):
         job = JobModel.query.get_or_404(job_id)
         return job
-
+    
+    @jwt_required()
     def delete(self, job_id):
         job = JobModel.query.get_or_404(job_id)
         db.session.delete(job)
@@ -26,10 +29,12 @@ class Job(MethodView):
 
 @blp.route("/jobs")
 class JobList(MethodView):
+    @jwt_required()
     @blp.response(200, JobSchema(many=True))
     def get(self):
         return JobModel.query.all()
 
+    @jwt_required()
     @blp.arguments(JobSchema)
     @blp.response(201, JobSchema)
     def post(self, job_data):

@@ -1,5 +1,6 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
+from flask_jwt_extended import jwt_required
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 
 from db import db
@@ -12,11 +13,13 @@ blp = Blueprint("Departments", "departments", description="Operations on departm
 
 @blp.route("/departments/<int:department_id>")
 class Department(MethodView):
+    @jwt_required()
     @blp.response(200, DepartmentSchema)
     def get(self, department_id):
         department = DepartmentModel.query.get_or_404(department_id)
         return department
-
+    
+    @jwt_required()
     def delete(self, department_id):
         department = DepartmentModel.query.get_or_404(department_id)
         db.session.delete(department)
@@ -26,10 +29,12 @@ class Department(MethodView):
 
 @blp.route("/departments")
 class DepartmentList(MethodView):
+    @jwt_required()
     @blp.response(200, DepartmentSchema(many=True))
     def get(self):
         return DepartmentModel.query.all()
 
+    @jwt_required()
     @blp.arguments(DepartmentSchema)
     @blp.response(201, DepartmentSchema)
     def post(self, department_data):
