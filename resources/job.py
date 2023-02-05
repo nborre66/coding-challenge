@@ -10,7 +10,7 @@ from schemas import JobSchema
 blp = Blueprint("Jobs", "jobs", description="Operations on jobs")
 
 
-@blp.route("/jobs/<string:job_id>")
+@blp.route("/jobs/<int:job_id>")
 class Job(MethodView):
     @blp.response(200, JobSchema)
     def get(self, job_id):
