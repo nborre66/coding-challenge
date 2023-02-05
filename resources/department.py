@@ -10,7 +10,7 @@ from schemas import DepartmentSchema
 blp = Blueprint("Departments", "departments", description="Operations on departments")
 
 
-@blp.route("/departments/<string:department_id>")
+@blp.route("/departments/<int:department_id>")
 class Department(MethodView):
     @blp.response(200, DepartmentSchema)
     def get(self, department_id):

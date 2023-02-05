@@ -31,3 +31,8 @@ class JobSchema(PlainJobSchema):
 
 class DepartmentSchema(PlainDepartmentSchema):
     hiredEmployees = fields.List(fields.Nested(PlainHiredEmployeeSchema()), dump_only=True)
+
+class UserSchema(Schema):
+    id = fields.Int()
+    username = fields.Str()
+    password = fields.Str(load_only=True)

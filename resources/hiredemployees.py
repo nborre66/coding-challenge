@@ -9,7 +9,7 @@ from schemas import HiredEmployeeSchema, HiredEmployeeUpdateSchema
 blp = Blueprint("HiredEmployees", "hiredemployees", description="Operations on HiredEmployees")
 
 
-@blp.route("/hiredemployees/<string:hiredemployees_id>")
+@blp.route("/hiredemployees/<int:hiredemployees_id>")
 class HiredEmployee(MethodView):
     @blp.response(200, HiredEmployeeSchema)
     def get(self, hiredemployee_id):
