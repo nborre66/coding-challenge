@@ -16,4 +16,4 @@ class HiredEmployeeModel(db.Model):
     job_id = db.Column(
         db.Integer, db.ForeignKey("jobs.id"), unique=False, nullable=False
     )
-    department = db.relationship("JobModel", back_populates="hiredemployees")
+    job = db.relationship("JobModel", back_populates="hiredemployees")

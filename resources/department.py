@@ -7,7 +7,7 @@ from models import DepartmentModel
 from schemas import DepartmentSchema
 
 
-blp = Blueprint("Departments", "depártments", description="Operations on departments")
+blp = Blueprint("Departments", "departments", description="Operations on departments")
 
 
 @blp.route("/departments/<string:department_id>")
