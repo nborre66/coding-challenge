@@ -4,7 +4,9 @@ from flask_smorest import Api
 import models
 
 from db import db
-
+from resources.job import blp as JobBlueprint
+from resources.department import blp as DepartmentBlueprint
+from resources.hiredemployees import blp as HiredEmployeeBlueprint
 
 def create_app(db_url=None):
     app = Flask(__name__)
@@ -25,5 +27,9 @@ def create_app(db_url=None):
 
     with app.app_context():
         db.create_all()
+
+    api.register_blueprint(JobBlueprint)
+    api.register_blueprint(DepartmentBlueprint)
+    api.register_blueprint(HiredEmployeeBlueprint)
 
     return app
