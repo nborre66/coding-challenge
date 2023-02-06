@@ -31,7 +31,7 @@ class Job(MethodView):
 
 @blp.route("/jobs")
 class JobList(MethodView):
-    #@jwt_required()
+    @jwt_required()
     @blp.response(200, JobSchema(many=True))
     def get(self):
         return JobModel.query.all()
@@ -56,6 +56,7 @@ class JobList(MethodView):
 
 @blp.route("/jobs/ingest")
 class JobIngest(MethodView):
+    @jwt_required()
     def get(self, containerName="jobs"):
         try:
             client = createClient()
