@@ -43,6 +43,9 @@ You can use Python, Java, Go or Scala to solve it! -> Python :)
 - The metadata is handled by marshmallow 
 - The app includes swagger-ui for api documentation
 - The solution will be deployed in Render.com
+- You must create an user in order to interact with the api /users/register
+- You must do a login with a registered user in order to get a token. 
+- To consume every api endpoint you have to provide an "Authorization Header" with the  "Bearer token" 
 
 ## Challenge 2 
 
