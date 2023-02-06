@@ -7,6 +7,8 @@ from db import db
 from models import JobModel
 from schemas import JobSchema
 
+from azureblob import createClient, getContainerConnection, getlistBlobs, getDataframe
+import traceback
 
 blp = Blueprint("Jobs", "jobs", description="Operations on jobs")
 
@@ -29,7 +31,7 @@ class Job(MethodView):
 
 @blp.route("/jobs")
 class JobList(MethodView):
-    @jwt_required()
+    #@jwt_required()
     @blp.response(200, JobSchema(many=True))
     def get(self):
         return JobModel.query.all()
@@ -51,3 +53,22 @@ class JobList(MethodView):
             abort(500, message="An error occurred creating the job.")
 
         return 
+
+@blp.route("/jobs/ingest")
+class JobIngest(MethodView):
+    def get(self, containerName="jobs"):
+        try:
+            client = createClient()
+            containerConnection = getContainerConnection(client, containerName)
+            listBlobs = getlistBlobs(containerConnection)
+            df = getDataframe(listBlobs, containerName)
+            df.rename(columns=dict(zip(df.columns, ["id","job"]))).to_sql(name='jobs', if_exists='append', chunksize=1000, con=db.engine, index=False)
+            return {"message": "Job csv Ingested"}, 201
+        except IntegrityError as e:
+            errorInfo = e.orig.args
+            abort(
+                400,
+                message=f'Error code: {errorInfo[0]}'
+            )
+
+
