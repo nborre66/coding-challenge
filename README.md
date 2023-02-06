@@ -38,20 +38,23 @@ You can use Python, Java, Go or Scala to solve it! -> Python :)
 ## Solution Notes
 
 - Developed using an Azure Blob Storage, Flask API and SQLite (SqlAlchemy)
+
+![alt text](https://ibb.co/0nDYQN2)
+
 - The solution includes JWT for Security 
 - The solution API is deployed by using docker 
 - The metadata is handled by marshmallow 
-- The app includes swagger-ui for api documentation
-- The solution will be deployed in Render.com
-- You must create an user in order to interact with the api /users/register
-- You must do a login with a registered user in order to get a token. 
-- To consume every api endpoint you have to provide an "Authorization Header" with the  "Bearer token" 
+- The app includes swagger-ui for api documentation (Dev https://coding-challenge-project-dev.onrender.com/swagger-ui ; Prod https://coding-challenge-project.onrender.com/swagger-ui)
+- The solution will be deployed in Render.com (Dev https://coding-challenge-project-dev.onrender.com/swagger-ui ; Prod https://coding-challenge-project.onrender.com/swagger-ui)
+- You must create an user in order to interact with the api /register
+- You must do a login with a registered user in order to get a token /login. 
+- To consume every api endpoint you have to provide an "Authorization Header" with the  "Bearer token" you get previously on login
 
 ## Challenge 2 
 
 ## Solution Notes 
 
-- Endpoints to Get All Jobs, Departments, Hired_Employees Completed 
+- Endpoints to Get All Jobs, Departments, Hired_Employees (Completed)
 - PowerBi Report (Pending)
 
 
