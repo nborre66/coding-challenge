@@ -4,3 +4,5 @@ passlib
 marshmallow
 python-dotenv
 flask-jwt-extended
+azure-storage-blob
+pandas
