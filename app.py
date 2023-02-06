@@ -7,6 +7,8 @@ from flask_jwt_extended import JWTManager
 import models
 
 from db import db
+from blocklist import BLOCKLIST
+
 from resources.job import blp as JobBlueprint
 from resources.department import blp as DepartmentBlueprint
 from resources.hiredemployees import blp as HiredEmployeeBlueprint
