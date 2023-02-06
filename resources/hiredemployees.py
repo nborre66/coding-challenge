@@ -48,7 +48,7 @@ class HiredEmployee(MethodView):
 
 @blp.route("/hiredemployees")
 class HiredEmployeeList(MethodView):
-    #@jwt_required()
+    @jwt_required()
     @blp.response(200, HiredEmployeeSchema(many=True))
     def get(self):
         return HiredEmployeeModel.query.all()
@@ -69,7 +69,7 @@ class HiredEmployeeList(MethodView):
 
 @blp.route("/hiredemployees/ingest")
 class HiredEmployeesIngest(MethodView):
-    #@jwt_required()
+    @jwt_required()
     def get(self, containerName="hiredemployees"):
         try:
             client = createClient()
