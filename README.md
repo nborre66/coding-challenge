@@ -10,10 +10,10 @@ is big data migration to a new database system. You need to create a PoC to solv
 requirements:
 1. Move historic data from files in CSV format to the new database. (Completed)
 2. Create a Rest API service to receive new data. This service must have: 
-2.1. Each new transaction must fit the data dictionary rules.(Completed)
-2.2. Be able to insert batch transactions (1 up to 1000 rows) with one request. (Completed)
-2.3. Receive the data for each table in the same service. (Completed)
-2.4. Keep in mind the data rules for each table. (Completed)
+- Each new transaction must fit the data dictionary rules.(Completed)
+- Be able to insert batch transactions (1 up to 1000 rows) with one request. (Completed)
+- Receive the data for each table in the same service. (Completed)
+- Keep in mind the data rules for each table. (Completed)
 3. Create a feature to backup for each table and save it in the file system in AVRO format. (In Progress)
 4. Create a feature to restore a certain table with its backup. (In Queue)
 
