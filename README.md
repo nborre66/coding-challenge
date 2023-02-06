@@ -21,18 +21,18 @@ You need to publish your code in GitHub. It will be taken into account if freque
 made to the repository that allow analyzing the development process. (Completed)
 
 ### Clarifications
-● You decide the origin where the CSV files are located. (Completed)
-● You decide the destination database type, but it must be a SQL database. (Completed)
-● The CSV file is comma separated. (ok)
-● "Feature" must be interpreted as "Rest API, Stored Procedure, Database functionality,
+1. You decide the origin where the CSV files are located. (Completed)
+2. You decide the destination database type, but it must be a SQL database. (Completed)
+3. The CSV file is comma separated. (ok)
+4. "Feature" must be interpreted as "Rest API, Stored Procedure, Database functionality,
 Cron job, or any other way to accomplish the requirements". (ok)
 
 ### Not mandatory, but taken into account:
-● Create a markdown file for the Readme.md (In Progress)
-● Security considerations for your API service (Completed)
-● Use the Git workflow to create versions (Completed)
-● Create a Dockerfile to deploy the package (Completed)
-● Use cloud tools instead of local tools (Completed)
+1. Create a markdown file for the Readme.md (In Progress)
+2. Security considerations for your API service (Completed)
+3. Use the Git workflow to create versions (Completed)
+4. Create a Dockerfile to deploy the package (Completed)
+5. Use cloud tools instead of local tools (Completed)
 You can use Python, Java, Go or Scala to solve it! -> Python :)
 
 ## Solution Notes
@@ -46,6 +46,9 @@ You can use Python, Java, Go or Scala to solve it! -> Python :)
 
 ## Challenge 2 
 
-## Queued 
+## Solution Notes 
+
+- Endpoints to Get All Jobs, Departments, Hired_Employees Completed 
+- PowerBi Report (Pending)
 
 
