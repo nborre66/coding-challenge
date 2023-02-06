@@ -15,7 +15,7 @@ requirements:
 - Receive the data for each table in the same service. (Completed)
 - Keep in mind the data rules for each table. (Completed)
 3. Create a feature to backup for each table and save it in the file system in AVRO format. (In Progress)
-4. Create a feature to restore a certain table with its backup. (In Queue)
+4. Create a feature to restore a certain table with its backup. (Not Started)
 
 You need to publish your code in GitHub. It will be taken into account if frequent updates are
 made to the repository that allow analyzing the development process. (Completed)
@@ -28,7 +28,7 @@ made to the repository that allow analyzing the development process. (Completed)
 Cron job, or any other way to accomplish the requirements". (ok)
 
 ### Not mandatory, but taken into account:
-1. Create a markdown file for the Readme.md (In Progress)
+1. Create a markdown file for the Readme.md (Completed)
 2. Security considerations for your API service (Completed)
 3. Use the Git workflow to create versions (Completed)
 4. Create a Dockerfile to deploy the package (Completed)
